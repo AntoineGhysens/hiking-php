@@ -41,7 +41,7 @@ $all_hikes = $q->fetchAll(PDO::FETCH_ASSOC);
         ?><ul> <?php
         
         foreach ($all_hikes as $item) { ?>
-           <li> <?php echo $item; ?> </li>
+           <li> <?php echo $item['hike_name']; ?> </li>
            <?php
         } ?>
         </ul> <?php
