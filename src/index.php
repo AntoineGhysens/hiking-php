@@ -13,6 +13,8 @@ try {
 } catch (PDOException $e) {
     die("Could not connect to the database $dbname :" . $e->getMessage());
 }
+$all_hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -38,7 +40,8 @@ try {
         echo $q;
     } else { ?>
         <ul> <?php
-        foreach ($arr as $item) { ?>
+        
+        foreach ($all_hikes as $item) { ?>
            <li> <?php echo $item; ?> </li>
            <?php nl2br(true);
         } ?>
