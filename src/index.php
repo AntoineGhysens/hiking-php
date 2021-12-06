@@ -37,16 +37,16 @@ $all_hikes = $q->fetchAll(PDO::FETCH_ASSOC);
     $arr = array(1 => "abc", 2 => "azerty");
     if(!isset($_GET["search"])){
         echo "there is no search";
-        echo $q;
-    } else { ?>
-        <ul> <?php
+        //echo $q;
+        ?><ul> <?php
         
         foreach ($all_hikes as $item) { ?>
            <li> <?php echo $item; ?> </li>
-           <?php nl2br(true);
+           <?php
         } ?>
         </ul> <?php
-        # "search term : " . $_GET["search"];
+    } else { 
+        
     }
     ?>
 
