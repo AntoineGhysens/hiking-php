@@ -1,8 +1,6 @@
 <?php 
 include 'header.php';
 
-echo $_GET['id'];
-
 require_once 'connexion.php';
 
 if(isset($_GET["id"])){ 
@@ -13,8 +11,11 @@ if(isset($_GET["id"])){
     } catch (PDOException $e) {
         die("Could not connect to the database $DB :" . $e->getMessage());
     }
-    $searchresult = $searchsql->fetchAll();
+    $searchresult = $searchsql->fetch();
     print_r($searchresult);
+    //
+} else{
+    echo "Go back to the main page";
 }
 ?>
 
