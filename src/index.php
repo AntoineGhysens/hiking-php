@@ -43,14 +43,12 @@ include 'header.php';
         } ?>
         <?php
     } elseif (isset($_GET["search"])) { 
-        foreach ($searchresult as $searchitem) { 
-            foreach ($searchitem as $searchitemproperty)?>
+        foreach ($searchresult as $searchitem) { ?>
             <li><a href="./hike.php?id=<?php echo $searchitem["id"];?>"> 
             <h1><?php echo $searchitem["hike_name"]; ?></h1>
-            </a></li>
-            <?php
-         }
-        }
+            </a></li> <?php
+       }
+    }
         ?>
         </ul>
         
