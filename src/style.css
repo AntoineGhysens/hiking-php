@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 ul {
   border: black solid 1px;
+  border-radius: 15px 50px 30px 5px;
 }
 
 li {
@@ -8,6 +10,8 @@ li {
 
 header {
   background-color: #9999ff;
+  background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+  border-radius: 15px 50px 30px 5px;
 }
 
 form {
@@ -19,5 +23,9 @@ form {
 path {
   fill: blue !important;
   fill-rule: nonzero;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 /*# sourceMappingURL=style.css.map */

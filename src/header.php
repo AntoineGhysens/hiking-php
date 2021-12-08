@@ -9,6 +9,7 @@
     </head>
     <body>
         <header>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
             <a href="index.php">
             <svg version="1.1" id="home" xmlns="http://www.w3.org/2000/svg" 
 	 width="32px" height="31.17px" viewBox="394.5 418.584 212 206.25">

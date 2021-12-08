@@ -16,3 +16,7 @@ RUN a2enmod rewrite remoteip && \
 
 #Rights on the env
 RUN sed -ri 's/^www-data:x:33:33:/www-data:x:1000:50:/' /etc/passwd
+#Download mhsendmail
+RUN curl -LkSso /usr/bin/mhsendmail 'https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64'&& \
+    chmod 0755 /usr/bin/mhsendmail
+
