@@ -1,8 +1,18 @@
 ul {
-  border: 1px solid black;
+  border: black solid 1px;
 }
 
 li {
   list-style: none;
+}
+
+header {
+  background-color: #9999ff;
+}
+
+form {
+  display: inline;
+  float: right;
+  margin: auto 0;
 }
 /*# sourceMappingURL=style.css.map */
