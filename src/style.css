@@ -15,4 +15,9 @@ form {
   float: right;
   margin: auto 0;
 }
+
+path {
+  fill: blue !important;
+  fill-rule: nonzero;
+}
 /*# sourceMappingURL=style.css.map */

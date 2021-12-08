@@ -6,7 +6,7 @@ if(!isset($_GET["search"])){
     try {
         $sql = 'SELECT *
                 FROM hikes
-                ORDER BY id DESC';
+                ORDER BY hike_id DESC';
     
         $q = $pdo->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@ include 'header.php';
     if(!isset($_GET["search"])){
         
         foreach ($all_hikes as $item) { ?>
-           <li><a href="./hike.php?id=<?php echo $item['id'] ?> "> <?php echo $item['hike_name']; ?></a> </li>
+           <li><a href="./hike.php?id=<?php echo $item['hike_id'] ?> "> <?php echo $item['hike_name']; ?></a> </li>
            <?php
         } ?>
         <?php
