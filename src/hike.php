@@ -5,18 +5,15 @@ include 'header.php';
 
 require_once 'connexion.php';
 
-if(!isset($_GET["search"])){ 
+if(!isset($_GET["id"])){ 
+    $myQuery = "%{$_GET['id']}%";
     try {
-        $sql = 'SELECT *
-                FROM hikes
-                WHERE hike_id = {$_GET["id"]}';
-    
-        $q = $pdo->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $searchsql =  $pdo->prepare('SELECT * FROM hikes WHERE hike_id LIKE ?');
+        $searchsql->execute([$myQuery]);
     } catch (PDOException $e) {
-        die("Could not connect to the database $dbname :" . $e->getMessage());
+        die("Could not connect to the database $DB :" . $e->getMessage());
     }
-        $all_hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+    $searchresult = $searchsql->fetchAll();
 }
 
 

@@ -19,14 +19,9 @@ if(!isset($_GET["search"])){
     try {
         $searchsql =  $pdo->prepare('SELECT * FROM hikes WHERE hike_name LIKE ?');
         $searchsql->execute([$myQuery]);
-        
-        
-        /* $searchq = $pdo->query($searchsql);
-        $searchq->setFetchMode(PDO::FETCH_ASSOC); */
     } catch (PDOException $e) {
         die("Could not connect to the database $DB :" . $e->getMessage());
     }
-    /* $searchresult = $searchq->fetchAll(PDO::FETCH_ASSOC); */
     $searchresult = $searchsql->fetchAll();
 }
 
@@ -44,7 +39,7 @@ include 'header.php';
         <?php
     } elseif (isset($_GET["search"])) { 
         foreach ($searchresult as $searchitem) { ?>
-            <li><a href="./hike.php?id=<?php echo $searchitem["id"];?>"> 
+            <li><a href="./hike.php?id=<?php echo $searchitem["hike_id"];?>"> 
             <h1><?php echo $searchitem["hike_name"]; ?></h1>
             </a></li> <?php
        }
