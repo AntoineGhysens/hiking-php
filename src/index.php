@@ -4,9 +4,8 @@ require_once 'connexion.php';
 
 if(!isset($_GET["search"])){ 
     try {
-        $sql = 'SELECT *
-                FROM hikes
-                ORDER BY hike_id DESC';
+        $sql = 'SELECT * FROM hikes ORDER BY hike_name ASC';
+        # $sql = 'SELECT * FROM hikes ORDER BY hike_id DESC';
     
         $q = $pdo->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -17,7 +16,8 @@ if(!isset($_GET["search"])){
 } else {
     $myQuery = "%{$_GET['search']}%";
     try {
-        $searchsql =  $pdo->prepare('SELECT * FROM hikes WHERE hike_name LIKE ?');
+        # $searchsql =  $pdo->prepare('SELECT * FROM hikes WHERE hike_name LIKE ?');
+        $searchsql =  $pdo->prepare('SELECT * FROM hikes WHERE hike_name LIKE ? ORDER BY hike_name ASC');
         $searchsql->execute([$myQuery]);
     } catch (PDOException $e) {
         die("Could not connect to the database $DB :" . $e->getMessage());
