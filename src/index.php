@@ -22,19 +22,25 @@ function itemContent($dist, $difficulty){
     return $dist . ' km - ' . getDifficulty($difficulty) . ' by author';
 };
 
+function sortBy(){
+    if(!isset($_GET["s"])){
+        return '<div id="sort">sort by : new | <a href="">alphabetic a &rarr; z</a></div>';
+    }    
+};
+
 require_once 'connexion.php';
 
-if(!isset($_GET["search"])){ 
+if(!isset($_GET["search"]) && !isset($_GET["s"])){ 
     try {
         #$sql = 'SELECT * FROM hikes ORDER BY hike_name ASC'; # sort by alphabetic order
-        $sql = 'SELECT * FROM hikes ORDER BY hike_id DESC'; # sort by newest
-    
-        $q = $pdo->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $sql = $pdo->prepare('SELECT * FROM hikes ORDER BY hike_id DESC'); # sort by newest
+        $sql->execute();
+        /* $q = $pdo->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC); */
     } catch (PDOException $e) {
         die("Could not connect to the database $dbname :" . $e->getMessage());
     }
-    $all_hikes = $q->fetchAll(PDO::FETCH_ASSOC);
+    $all_hikes = $sql->fetchAll(PDO::FETCH_ASSOC);
 } else {
     $myQuery = "%{$_GET['search']}%";
     try {
@@ -59,28 +65,28 @@ if(!isset($_GET["search"])){
     </head>
     <body>
 <?php
-include 'header.php';
+include 'header.php'; ?>
 
-    $arr = array(1 => "abc", 2 => "azerty"); ?>
-    <ul>
-        <?php
+<main>
+    <?php echo sortBy(); ?>
+        <ul>
+            <?php
     if(!isset($_GET["search"])){
         
-        foreach ($all_hikes as $item) { ?>
-           <li><a href="./hike.php?id=<?php echo $item['hike_id'] ?> "> <?php echo $item['hike_name']; ?></a>
+        foreach ($all_hikes as $item): ?>
+           <li><a class='link-item' href="./hike.php?id=<?php echo $item['hike_id'] ?> "> <?php echo $item['hike_name']; ?></a>
            <p><?php echo itemContent($item['distance'], $item['hike_difficulty']); ?></p></li>
+           <?php endforeach; ?>
            <?php
-        } ?>
-        <?php
     } elseif (isset($_GET["search"])) { 
-        foreach ($searchresult as $searchitem) { ?>
-            <li><a href="./hike.php?id=<?php echo $searchitem["hike_id"];?>"> <?php echo $searchitem["hike_name"]; ?></a>
+        foreach ($searchresult as $item): ?>
+            <li><a class='link-item' href="./hike.php?id=<?php echo $item["hike_id"];?>"> <?php echo $item["hike_name"]; ?></a>
             <p><?php echo itemContent($item['distance'], $item['hike_difficulty']); ?></p></li> 
-            <?php
-       }
+            <?php endforeach;
     }
-        ?>
+    ?>
         </ul>
+    </main>
         
     </body>
     </html>
