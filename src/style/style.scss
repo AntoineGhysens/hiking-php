@@ -7,13 +7,34 @@
 body {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    padding-bottom: 5rem;
 }
 
-ul {
-    border : black solid 1px;
+header {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    background-color : lighten(blue, 30%);
+    padding: 0.25em 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+#home{
+    margin-right: auto;
+}
+
+/* form{
+    
+} */
+
+main{
     padding: 1em;
 }
+
+#sort{
+    margin-bottom: 1em;
+}
+
+/* ul {
+} */
 
 li{
     border : black solid 1px;
@@ -24,17 +45,14 @@ li + li {
     margin-top: 1em;
 }
 
+.link-items{
+    margin-bottom: 0.5em;
+}
+
 .hikes_pictures{
     margin-left: auto
 }
 
-header {
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-    background-color : lighten(blue, 30%);
-}
-form{
-    display: inline;
-    float: right;
-    margin: auto 0;
-}
+
+
 

@@ -61,14 +61,36 @@ table {
 body {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  padding-bottom: 5rem;
 }
 
-ul {
-  border: black solid 1px;
+header {
+  background-color: #9999ff;
+  padding: 0.25em 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#home {
+  margin-right: auto;
+}
+
+/* form{
+    
+} */
+main {
   padding: 1em;
 }
 
+#sort {
+  margin-bottom: 1em;
+}
+
+/* ul {
+} */
 li {
   border: black solid 1px;
   padding: 0.5em;
@@ -78,17 +100,11 @@ li + li {
   margin-top: 1em;
 }
 
+.link-items {
+  margin-bottom: 0.5em;
+}
+
 .hikes_pictures {
   margin-left: auto;
-}
-
-header {
-  background-color: #9999ff;
-}
-
-form {
-  display: inline;
-  float: right;
-  margin: auto 0;
 }
 /*# sourceMappingURL=style.css.map */
