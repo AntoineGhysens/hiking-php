@@ -1,5 +1,5 @@
         <header>
-            <a href="index.php">
+            <a id="home" href="index.php">
             <svg version="1.1" id="home" xmlns="http://www.w3.org/2000/svg" 
 	 width="32px" height="31.17px" viewBox="394.5 418.584 212 206.25">
             <path d="M600.116,503.301l-88.955-77.062c-0.298-0.254-0.656-0.472-1.059-0.639c-5.693-4.32-13.557-4.119-19.049,0.639
@@ -15,7 +15,7 @@
 </svg>
             </a>
             <form action="index.php" method="get">
-                    <input type="text" name="search" id="search">
+                    <input type="text" name="search" id="search" placeholder="Search for hikes">
                     <button type="submit">search</button>
                 </form>
         </header>
